@@ -1,0 +1,30 @@
+<svg width="100%" viewBox="0 0 298 185" version="1.1" class="icon"  xmlns="http://www.w3.org/2000/svg">
+    <g class="Services" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g class="iconos-services" transform="translate(-1282.000000, -2894.000000)">
+            <g class="i9_apis" transform="translate(1284.000000, 2896.000000)">
+                <path d="M178.723404,0 L284.95003,0 C289.809903,0 293.785936,4.00512686 293.785936,8.90056057 L293.785936,172.090044 L293.785936,172.090044 C293.785936,176.987985 289.809903,180.988097 284.95003,180.988097 L177.382979,180.988097"
+                      class="i9_cuadro_blanco" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"></path>
+                <path d="M165.319149,180.988097 L54.7303109,180.988097 C49.8704382,180.988097 45.894405,176.987985 45.894405,172.090044 L45.894405,8.90056057 C45.894405,4.00512686 49.8704382,0 54.7303109,0 L167.106383,0"
+                      class="i9_cuadro_gris" stroke="#bcb598" stroke-width="3" stroke-linecap="round"></path>
+                <path d="M172.121419,68.1193744 L263.762775,68.1193744" class="i9_ench_lingris" stroke="#bcb598" stroke-width="3" stroke-linecap="square"></path>
+                <path d="M108,125.6325 C108,136.1095 116.464,144.5855 126.923,144.5855 C137.382,144.5855 145.322,136.2565 145.322,125.7805 L145.322,86.2825 C145.322,76.1775 153.494,68.0005 163.592,68.0005"
+                      class="i9_ench_curva" stroke="#795548" stroke-width="3" stroke-linecap="round"
+                      stroke-linejoin="round"></path>
+                <path d="M128.477942,85.715381 L128.477942,110.002852 C128.477942,117.382422 122.502743,123.369159 115.136244,123.369159 L101.626141,123.369159 C94.2572807,123.369159 88.2836561,117.382422 88.2836561,110.002852 L88.2836561,85.715381 L128.477942,85.715381 Z"
+                      class="i9_ench" stroke="#bcb598" stroke-width="3" stroke-linecap="round"></path>
+                <path d="M116.90674,85.4940106 L116.90674,69.2986847" class="i9_ench_lin2" stroke="#795548" stroke-width="3" stroke-linecap="round"
+                      stroke-linejoin="round"></path>
+                <path d="M96.4616801,85.4940106 L96.4616801,69.2986847" class="i9_ench_lin1" stroke="#795548" stroke-width="3" stroke-linecap="round"
+                      stroke-linejoin="round"></path>
+                <path d="M0,36.024865 L173.574993,36.024865" class="i9_linea_blanca" stroke="#795548" stroke-width="3" stroke-linecap="round"
+                      stroke-linejoin="round"></path>
+                <path d="M171.809824,36.024865 L219.989573,36.024865" class="i9_linea_azul" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"
+                      stroke-linejoin="round"></path>
+                <path d="M95.691879,19.510293 C95.691879,22.2288637 93.5034425,24.4358216 90.7996404,24.4358216 C88.0958382,24.4358216 85.904912,22.2288637 85.904912,19.510293 C85.904912,16.7816906 88.0958382,14.5772407 90.7996404,14.5772407 C93.5034425,14.5772407 95.691879,16.7816906 95.691879,19.510293"
+                      class="i9_redonda2" fill="#795548"></path>
+                <path d="M70.9819968,19.510293 C70.9819968,22.2288637 68.7935602,24.4358216 66.0897581,24.4358216 C63.385956,24.4358216 61.1925401,22.2288637 61.1925401,19.510293 C61.1925401,16.7816906 63.385956,14.5772407 66.0897581,14.5772407 C68.7935602,14.5772407 70.9819968,16.7816906 70.9819968,19.510293"
+                      class="i9_redonda1" fill="#795548"></path>
+            </g>
+        </g>
+    </g>
+</svg>

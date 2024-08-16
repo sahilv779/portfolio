@@ -1,0 +1,19 @@
+<svg width="350px" height="220px" viewBox="0 0 317 214" class="icon" xmlns="http://www.w3.org/2000/svg">
+    <g class="Services" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+        <g class="iconos-services" transform="translate(-701.000000, -2201.000000)" stroke-width="3">
+            <g class="i8_desk_applications" transform="translate(703.000000, 2203.000000)">
+                <path class="i8_base" stroke="#bcb598" d="M216.367582 178.787825 228.169324 209.59191 150.323345 209.59191 162.122919 178.787825"></path>
+                <path d="M226.812286,132.589674 L245.5,132.589674" class="i8_linea_gris2" stroke="#bcb598"></path>
+                <path d="M223.963937,133.096318 C223.963937,137.618886 220.308085,141.288839 215.79572,141.288839 C211.286568,141.288839 207.630717,137.618886 207.630717,133.096318 C207.630717,128.568916 211.286568,124.907022 215.79572,124.907022 C220.308085,124.907022 223.963937,128.568916 223.963937,133.096318 Z"
+                      class="i8_redonda_gris" stroke="#795548"></path>
+                <path d="M111.876326,132.589674 L204.781718,132.589674" class="i8_linea_gris1" stroke="#bcb598"></path>
+                <path d="M248.425404,0 L286.854866,0 C290.062685,0 292.685295,2.63258627 292.685295,5.84777626 L292.685295,149.535682 C292.685295,152.757394 290.062685,155.383459 286.854866,155.383459 L249.292382,155.383459"
+                      class="i8_pantalla_azul" stroke="#fff"></path>
+                <path d="M261.248465,131.977273 L313.5,131.977273" class="i8_linea_azul" stroke="#fff" stroke-linejoin="round"></path>
+                <path d="M246.257958,155.383459 L90.9828003,155.383459 C87.7749807,155.383459 85.1523714,152.757394 85.1523714,149.535682 L85.1523714,5.84777626 C85.1523714,2.63258627 87.7749807,0 90.9828003,0 L246.257958,0"
+                      class="i8_pantalla_blanca" stroke="#bcb598"></path>
+                <path d="M0.248465066,23.9772727 L178.915433,23.9772727" class="i8_line_blanca" stroke="#795548" stroke-linejoin="round"></path>
+            </g>
+        </g>
+    </g>
+</svg>

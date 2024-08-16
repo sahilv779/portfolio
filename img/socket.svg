@@ -1,0 +1,21 @@
+<svg width="100%" viewBox="0 0 269 173" class="icon"  xmlns="http://www.w3.org/2000/svg">
+    <g class="" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g class="" transform="translate(-838.000000, -656.000000)">
+            <g class="i6_web_applications" transform="translate(839.000000, 657.000000)">
+                <path d="M224.333205,161.570864 C224.333205,166.151903 220.61267,169.893202 216.065091,169.893202 L9.00113286,169.893202 C4.45355358,169.893202 0.733018694,166.151903 0.733018694,161.570864 L0.733018694,8.93992267 C0.733018694,4.36122901 4.45355358,0.615238336 9.00113286,0.615238336 L216.065091,0.615238336 C220.61267,0.615238336 224.333205,4.36122901 224.333205,8.93992267 L224.333205,161.570864 Z"
+                      class="i6_cuadrado" stroke="#bcb598" stroke-width="3" stroke-linecap="round"></path>
+                <path class="i6_derecha" stroke="#bcb598" stroke-width="3" stroke-linecap="round" d="M145.357688 81.2886776 169.812575 105.915576 145.467184 130.429883"></path>
+                <path d="M112.23911,81 L97.119341,131.480567" class="i6_barra" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path class="i6_izquierda" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" d="M67.1188458 81.2886776 42.6639586 105.915576 67.0093498 130.429883"></path>
+                <path d="M131,40.2929208 L266.001852,40.2929208" class="i6_linea2" stroke="#795548" stroke-width="3" stroke-linecap="round"
+                      stroke-linejoin="round"></path>
+                <path d="M87,40.2929208 L125.001852,40.2929208" class="i6_linea1" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"
+                      stroke-linejoin="round"></path>
+                <path d="M52.0966686,21.8803618 C52.0966686,24.423038 50.0488601,26.4872032 47.5188032,26.4872032 C44.9887463,26.4872032 42.9386081,24.423038 42.9386081,21.8803618 C42.9386081,19.3283031 44.9887463,17.2664835 47.5188032,17.2664835 C50.0488601,17.2664835 52.0966686,19.3283031 52.0966686,21.8803618"
+                      class="i6_redonda2" fill="#bcb598"></path>
+                <path d="M33.2589272,21.8803618 C33.2589272,24.423038 31.2111187,26.4872032 28.6810617,26.4872032 C26.1510048,26.4872032 24.0985369,24.423038 24.0985369,21.8803618 C24.0985369,19.3283031 26.1510048,17.2664835 28.6810617,17.2664835 C31.2111187,17.2664835 33.2589272,19.3283031 33.2589272,21.8803618"
+                      class="i6_redonda1" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,21 @@
+<svg width="350px" height="220px" viewBox="0 0 286 194" class="icon"  xmlns="http://www.w3.org/2000/svg">
+    <g class="Services" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g class="iconos-services" transform="translate(-1308.000000, -1159.000000)">
+            <g class="i7_cross_platform" transform="translate(1309.000000, 1161.000000)">
+                <path d="M117.615038,163.829181 C117.615038,169.810359 112.776733,174.658362 106.809426,174.658362 C100.838305,174.658362 96,169.810359 96,163.829181 C96,157.848003 100.838305,153 106.809426,153 C112.776733,153 117.615038,157.848003 117.615038,163.829181 Z"
+                      class="i7_mvl_redonda" stroke="#bcb598" stroke-width="3" stroke-linecap="round"></path>
+                <path d="M137.008885,189.52227 L68.0709709,189.52227 C57.5819369,189.52227 49,180.923132 49,170.413075 L49,19.1091954 C49,8.59913793 57.5819369,0 68.0709709,0 L137.508885,0"
+                      class="i7_mvl_izq1" stroke="#795548" stroke-width="3" stroke-linecap="round"></path>
+                <path d="M141,0 L148.991454,0 C159.480488,0 168.062424,8.59913793 168.062424,19.1091954 L168.062424,170.413075 L168.062424,170.413075 C168.062424,180.923132 159.480488,189.52227 148.991454,189.52227 L141,189.52227"
+                      class="i7_mvl_izq2" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"></path>
+                <path d="M182.45529,174.888819 L182.45529,95.6539056 C182.45529,85.1438481 191.037227,76.5447102 201.526261,76.5447102 L266.817849,76.5447102 C277.306882,76.5447102 285.888819,85.1438481 285.888819,95.6539056 L285.888819,174.888819"
+                      class="i7_mvl_dcha" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"
+                      transform="translate(234.172055, 125.716765) rotate(-270.000000) translate(-234.172055, -125.716765) "></path>
+                <path d="M248,74 L248,175.551724" class="i7_linea2" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"></path>
+                <path d="M272.147727,95.5899764 C272.147727,98.1194804 270.102749,100.172952 267.57619,100.172952 C265.049631,100.172952 263,98.1194804 263,95.5899764 C263,93.0511384 265.049631,91 267.57619,91 C270.102749,91 272.147727,93.0511384 272.147727,95.5899764"
+                      class="i7_redonda_peque" fill="#bcb598"></path>
+                <path d="M0.484414644,38.5 L128.817795,38.5" class="i7_linea1" stroke="#bcb598" stroke-width="3" stroke-linecap="round"></path>
+            </g>
+        </g>
+    </g>
+</svg>

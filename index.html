@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Sahil Verma</title>
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/w3.css">
+
+<body style="font-family:'Source Sans Pro', sans-serif; margin-top:5%;">
+<script type="text/javascript" src="/three.min.js"></script>
+<script type="text/javascript" src="/detector.js"></script>
+
+<script id="vs" type="x-shader/x-vertex">
+
+	varying vec2 vUv;
+
+    void main() {
+
+    vUv = uv;
+    gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
+
+    }
+
+</script>
+
+<script id="fs" type="x-shader/x-fragment">
+
+	uniform sampler2D map;
+
+    uniform vec3 fogColor;
+    uniform float fogNear;
+    uniform float fogFar;
+
+    varying vec2 vUv;
+
+    void main() {
+
+    float depth = gl_FragCoord.z / gl_FragCoord.w;
+    float fogFactor = smoothstep( fogNear, fogFar, depth );
+
+    gl_FragColor = texture2D( map, vUv );
+    gl_FragColor.w *= pow( gl_FragCoord.z, 20.0 );
+    gl_FragColor = mix( gl_FragColor, vec4( fogColor, gl_FragColor.w ), fogFactor );
+
+    }
+
+</script>
+
+<script type="text/javascript">
+	if (!Detector.webgl)
+		Detector.addGetWebGLMessage();
+
+	var container;
+	var camera, scene, renderer;
+	var mesh, geometry, material;
+
+	var mouseX = 0, mouseY = 0;
+	var start_time = Date.now();
+
+	var windowHalfX = window.innerWidth / 2;
+	var windowHalfY = window.innerHeight / 2;
+
+	init();
+
+	function init() {
+
+		container = document.createElement('div');
+		container.className = "cloud";
+		document.body.appendChild(container);
+
+		// Bg gradient
+
+		var canvas = document.createElement('canvas');
+		canvas.width = 32;
+		canvas.height = window.innerHeight;
+
+		var context = canvas.getContext('2d');
+
+		var gradient = context.createLinearGradient(0, 0, 0, canvas.height);
+		gradient.addColorStop(0, "#1e4877");
+		gradient.addColorStop(0.5, "#4584b4");
+
+		context.fillStyle = gradient;
+		context.fillRect(0, 0, canvas.width, canvas.height);
+
+		//
+
+		camera = new THREE.PerspectiveCamera(30, window.innerWidth / window.innerHeight, 1, 3000);
+		camera.position.z = 6000;
+
+		scene = new THREE.Scene();
+
+		geometry = new THREE.Geometry();
+
+		var texture = THREE.ImageUtils.loadTexture('/img/cloud.png', null, animate);
+		texture.magFilter = THREE.LinearMipMapLinearFilter;
+		texture.minFilter = THREE.LinearMipMapLinearFilter;
+
+		var fog = new THREE.Fog(0x4584b4, -100, 3000);
+
+		material = new THREE.ShaderMaterial({
+
+			uniforms: {
+
+				"map": {
+					type: "t",
+					value: texture
+				},
+				"fogColor": {
+					type: "c",
+					value: fog.color
+				},
+				"fogNear": {
+					type: "f",
+					value: fog.near
+				},
+				"fogFar": {
+					type: "f",
+					value: fog.far
+				},
+
+			},
+			vertexShader: document.getElementById('vs').textContent,
+			fragmentShader: document.getElementById('fs').textContent,
+			depthWrite: false,
+			depthTest: false,
+			transparent: true
+
+		});
+
+		var plane = new THREE.Mesh(new THREE.PlaneGeometry(64, 64));
+
+		for (var i = 0; i < 8000; i++) {
+
+			plane.position.x = Math.random() * 1000 - 500;
+			plane.position.y = -Math.random() * Math.random() * 200 - 15;
+			plane.position.z = i;
+			plane.rotation.z = Math.random() * Math.PI;
+			plane.scale.x = plane.scale.y = Math.random() * Math.random() * 1.5 + 0.5;
+
+			THREE.GeometryUtils.merge(geometry, plane);
+
+		}
+
+		mesh = new THREE.Mesh(geometry, material);
+		scene.add(mesh);
+
+		mesh = new THREE.Mesh(geometry, material);
+		mesh.position.z = -8000;
+		scene.add(mesh);
+
+		renderer = new THREE.WebGLRenderer({
+			antialias: false
+		});
+		renderer.setSize(window.innerWidth, window.innerHeight);
+		container.appendChild(renderer.domElement);
+
+		//	document.addEventListener('mousemove', onDocumentMouseMove, false);
+		window.addEventListener('resize', onWindowResize, false);
+
+	}
+
+	function onDocumentMouseMove(event) {
+
+		mouseX = (event.clientX - windowHalfX) * 0.25;
+		mouseY = (event.clientY - windowHalfY) * 0.15;
+
+	}
+
+	function onWindowResize(event) {
+
+		camera.aspect = window.innerWidth / window.innerHeight;
+		camera.updateProjectionMatrix();
+
+		renderer.setSize(window.innerWidth, window.innerHeight);
+
+	}
+
+	function animate() {
+
+		requestAnimationFrame(animate);
+
+		position = ((Date.now() - start_time) * 0.03) % 8000;
+
+		camera.position.x += (mouseX - camera.position.x) * 0.01;
+		camera.position.y += (-mouseY - camera.position.y) * 0.01;
+		camera.position.z = -position + 8000;
+
+		renderer.render(scene, camera);
+
+	}
+
+</script>
+<div id="top">
+	<section class="mainarea w3-content">
+		<div class="w3-card-16 w3-center w3-round-large">
+
+			<div class="w3-xxlarge">
+				<br/>
+				<br/>
+				<span class=" w3-xxlarge w3-wide w3-hover-text-amber  w3-padding-32 w3-roboto">Sahil Verma</span>
+				<br/>
+				<br/>
+				<div class="w3-large w3-wide w3-animate-opacity w3-hover-text-amber w3-exo"> SOFTWARE DEVELOPMENT ENGINEER </div>
+				<br/> </div>
+		</div>
+	</section>
+</div>
+
+
+<section class=" w3-center mainarea">
+
+
+	<div class="w3-content w3-container w3-text-white w3-padding-64">
+		<a class=" w3-text-light-grey w3-padding-large w3-opacity hover-opacity w3-wide w3-exo"> PORTFOLIO</a>
+		<p class="w3-center ">
+			<em class="w3-opacity">Here are some my best projects.</em>
+		</p>
+		<br>
+		<br>
+
+
+
+		<div class="w3-content">
+
+			<div class="w3-row w3-brown-custom w3-padding-large w3-left-align" style="border-radius : 60px 0 60px 0; margin-top: 40px; margin-bottom: 60px">
+
+				<div class="w3-half w3-padding-large w3-exo">
+					<br/>
+					<span class="w3-xxlarge w3-exo"> 1. License Management
+								<br> &oline;&oline;&oline;&oline; &nbsp; web app</span>
+
+					<div class="w3-container">
+						<ul>
+							<li>GraphQL</li>
+							<li>Angular</li>
+							<li>Nest.JS + TypeScript</li>
+							<li>Node.JS</li>
+							<li>Postgres + TypeORM</li>
+						</ul>
+					</div>
+
+				</div>
+				<div class="w3-half w3-center">
+							<span class="w3-hide-small">
+								<br><br><br> </span>
+					<img src="img/desktop.svg">
+					<br><br>
+					<div class=" w3-exo w3-xlarge ">License management software</div>
+				</div>
+			</div>
+
+
+
+			<div class="w3-row w3-brown-custom w3-padding-large w3-left-align" style="border-radius : 60px 0 60px 0; margin-top: 40px; margin-bottom: 60px">
+
+				<div class="w3-half w3-padding-large w3-exo">
+					<br/>
+					<span class="w3-xxlarge w3-exo"> 2. Posify
+								<br> &oline;&oline;&oline;&oline; &nbsp; web app</span>
+
+					<div class="w3-container">
+						<ul>
+							<li>Angular</li>
+							<li>Python + Flask</li>
+							<li>Celery + RabbitMQ</li>
+							<li>Postgres + SQLAlchemy</li>
+							<li>Redis</li>
+							<li>AWS Load balancer</li>
+							<li>Elasticsearch APM</li>
+						</ul>
+						<a href="//posify.in" target="_blank" class="w3-exo  ">Posify.in &UpperRightArrow;</a>
+					</div>
+
+				</div>
+				<div class="w3-half w3-center">
+							<span class="w3-hide-small">
+								<br><br><br> </span>
+					<img src="img/desktop.svg">
+					<br><br>
+					<div class=" w3-exo w3-xlarge ">Point of sale billing software.</div>
+				</div>
+			</div>
+
+
+
+			<div class="w3-row w3-brown-custom w3-padding-large w3-left-align" style="border-radius : 60px 0 60px 0; margin-top: 40px; margin-bottom: 60px">
+
+				<div class="w3-half w3-padding-large w3-exo">
+					<br/>
+					<span class="w3-xxlarge w3-exo"> 3. Waiter
+								<br> &oline;&oline;&oline;&oline; &nbsp; mobile app</span>
+
+					<div class="w3-container">
+						<ul>
+							<li>Ionic</li>
+							<li>Android + iOS</li>
+							<li>Rest API</li>
+							<li>Bluetooth printing</li>
+							<li>OTA Updates</li>
+							<li>Elasticsearch APM</li>
+						</ul>
+						<a href="https://play.google.com/store/apps/details?id=in.posify.captain" target="_blank" class="w3-exo  ">Play Store &UpperRightArrow;</a>
+					</div>
+
+				</div>
+				<div class="w3-half w3-center">
+							<span class="w3-hide-small">
+								<br><br><br> </span>
+					<img src="img/mobile.svg">
+					<br><br>
+					<div class=" w3-exo w3-xlarge ">Restaurant Waiter's Ordering app</div>
+				</div>
+			</div>
+
+
+
+
+			<div class="w3-row w3-brown-custom w3-padding-large w3-left-align" style="border-radius : 60px 0 60px 0; margin-top: 40px; margin-bottom: 60px">
+
+				<div class="w3-half w3-padding-large w3-exo">
+					<br/>
+					<span class="w3-xxlarge w3-exo"> 6. iFom Fuse
+								<br> &oline;&oline;&oline;&oline; &nbsp; mobile app</span>
+
+					<div class="w3-container">
+						<ul>
+							<li>Ionic</li>
+							<li>Android + iOS</li>
+							<li>Rest API</li>
+							<li>GPS Tracking</li>
+							<li>For Tata Communications</li>
+						</ul>
+					</div>
+
+				</div>
+				<div class="w3-half w3-center">
+							<span class="w3-hide-small">
+								<br><br><br> </span>
+					<img src="img/mobile.svg">
+					<br><br>
+					<div class=" w3-exo w3-xlarge ">Hybrid mobile app</div>
+				</div>
+			</div>
+
+
+
+
+
+			<a onclick="loadMore(this, document.getElementById('more'))" class="w3-hover-text-amber w3-exo w3-btn w3-xlarge w3-transparent w3-padding-large hover-opacity w3-wide shake-slow shake-constant shake-constant--hover">
+				LOAD MORE</a>
+
+			<br/>
+			<br/>
+
+		</div>
+	</div>
+
+</section>
+
+
+
+<section class="mainarea w3-container w3-text-grey w3-padding-32 w3-large" style="background-color:#1b1918;">
+	<div class="w3-content ">
+
+		<div class="w3-container w3-padding-64 w3-exo">
+			<div class=" w3-exo  w3-xlarge w3-transparent w3-padding-large  w3-wide w3-center "> LINKS</div>
+
+			<table style="margin-left: auto; margin-right: auto">
+				<tr>
+					<td >Linkedin</td>
+					<td ><a href="//linkedin.com/in/sahilv779" target="_blank" class="w3-hover-text-amber">- linkedin.com/in/sahilv779 &UpperRightArrow;</a></td>
+				</tr>
+
+				<tr>
+					<td >GitHub</td>
+					<td ><a href="https://github.com/sahilv779" target="_blank" class="w3-hover-text-amber">  - github.com/sahilv779 &UpperRightArrow;</a></td>
+				</tr>
+			</table>
+
+		</div>
+
+		<div class="w3-center w3-small">
+			Portfolio Last Updated August 2024
+		</div>
+
+
+	</div>
+</section>
+
+<div id="wrapper">
+	<p class="firefly" id="h_1">
+		<img src="/img/02.png" height="48" width="49" alt="">
+	</p>
+	<p class="firefly" id="h_2">
+		<img src="/img/02.png" alt="">
+	</p>
+	<p class="firefly" id="h_3">
+		<img src="/img/03.png" height="59" width="54" alt="">
+	</p>
+	<p class="firefly" id="h_4">
+		<img src="/img/02.png" height="48" width="49" alt="">
+	</p>
+	<p class="firefly_stay" id="h_6">
+		<img src="/img/03.png" height="59" width="54" alt="">
+	</p>
+	<p class="firefly_stay" id="h_7">
+		<img src="/img/02.png" height="48" width="49" alt="">
+	</p>
+	<p class="firefly_stay" id="h_5">
+		<img src="/img/02.png" height="48" width="49" alt="">
+	</p>
+	<p class="firefly_stay" id="h_8">
+		<img src="/img/03.png" height="59" width="54" alt="">
+	</p>
+</div>
+<script type="text/javascript" language="JavaScript">var fly = document.getElementsByClassName('firefly'); var rotx = 0; var roty = 0; var firefly_moving = function () { rotx = rotx + 0.5; roty = roty + 0.1; if (rotx > 360) rotx -= 360; if (roty > 360) roty -= 360; var i = fly.length; while (i--) { fly[i].style.marginLeft = (Math.cos(rotx * Math.PI / 180) * 300 + 34.5) + 'px'; fly[i].style.marginTop = (Math.sin(roty * Math.PI / 180) * 200 + 34) + 'px'; } setTimeout(function () { firefly_moving(); }, 20) }
+firefly_moving();
+function loadMore(toHideElement, toShowElement) {
+	toHideElement.style.display = "none";
+	toShowElement.style.display = "block";
+}
+</script>
+</body>
+
+</html>
